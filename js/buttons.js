@@ -53,6 +53,19 @@ function getMensaje(compra){
         total+=subtot
         mensaje+=art.cant+"%20"+art.Nombre+"%20+$"+subtot+"%0D%0A"
     })
-    mensaje+="_______________________%0D%0ATotal%3A+$"+total
+    mensaje+="__________________________%0D%0ATotal%3A+$"+total
     return mensaje
+}
+
+
+function configurarBotonCarrito(){
+    
+
+    const myModal = document.getElementById('btnCarro')
+    const myInput = document.getElementById('carroCompra')
+
+    myModal.addEventListener('click',function(){
+    myInput.focus()
+})
+
 }

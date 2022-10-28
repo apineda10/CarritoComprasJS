@@ -26,17 +26,17 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#" style="color: #faee52;">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: #faee52;">Categorias</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: #faee52;">Pricing</a>
-            </li>
-          </ul>
+          <div class="container-fluid">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#" style="color: #faee52;">Categorias</a>
+              </li>
+              <li class="nav-item" style="margin-left:85%">
+                <button id="btnCarro" class="btn bi bi-cart-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position:absolute; z-index: 2;font-size: large; "></button>
+                <a id="btnCarroCount" style="display:none; height:14px; width:14px;background-color: red;border-radius:50px;  position:absolute; color:white; z-index: 3; font-size: x-small; text-align: center; margin-left: 25px;margin-top: 10px;">1</a>
+              </li>
+            </ul>
+          </div>    
         </div>
       </nav>  
     </div>
@@ -45,10 +45,45 @@
         <br>
         <section id="principal" class="row m-2">
 
-            <article id="cartas" class="col-md-8 d-flex flex-wrap justify-content-between align-items-center">
+            <article id="cartas" class="d-flex flex-wrap justify-content-between align-items-center">
                 <!-- aqui cartas -->
             </article>
-            <div id="carroCompra" class="col-md-4 border-start" >
+
+            <!--Carro - Modal -->
+            <div id="exampleModal" class="modal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Carrito de compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-secundary">
+                      <thead>
+                          <tr>
+                              <th WIDTH="80px">Artículo</th>
+                              <th >Cantidad</th>
+                              <th >Precio</th>
+                              <th >SubTot</th>
+                              <th></th>
+                          </tr>
+                      </thead>
+                      <tbody id="carrocompra__articulos">                  
+                      </tbody>
+                    </table> 
+                    <div id="total">
+                     <!--total-->   
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button id="btncancel"  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar compra</button>
+                    <button id="btnfin" type="button" class="btn btn-primary">Finalizar compra</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!--<div id="carroCompra" class="col-md-4 border-start" >
                 <h3>Carrito de compras</h3>
                 <table class="table table-secundary">
                     <thead>
@@ -70,14 +105,17 @@
                   <button id="btnfin" class="btn btn-primary" type="button">Finalizar compra</button>
                   <button id="btncancel" class="btn btn-primary" type="button">Cancelar compra</button>
                 </div>   
-            </div>
+            </div>-->
         </section>
+        
     </main>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!--<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
     <script src="./js/objects.js"></script>
     <script src="./js/buttons.js"></script>
     <script src="./js/codigo.js"></script>
+    
 </body>
  
 </html>

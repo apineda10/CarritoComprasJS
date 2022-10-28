@@ -21,8 +21,8 @@ h1,h2,h3,h4,h5,th,p,a{
     justify-content: space-around;
     align-items: center;
     padding: 2;
-    width: 40rem;
-    height: 40rem;
+    width: 200px;
+    height:250px;
     box-shadow: 1px 1px #8442c7;
 }
 

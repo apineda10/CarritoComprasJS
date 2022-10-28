@@ -13,7 +13,8 @@ class Articulo {
 class Almacen{
     constructor(){
         this.totalDeCompra=0;
-        this.compra=[]
+        this.compra=[];
+        this.totalItem=0
         this.inventario=[
             new Articulo(1,"Crema",100,"Crema descremada de 500cc","crema.png",0),
             new Articulo(2,"Leche Descremada",222,"Leche descremada de 1lt","leche.png",0),

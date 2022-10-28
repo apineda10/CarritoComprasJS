@@ -3,6 +3,11 @@ function quitarDelCarro(art,acompra){
     actualizarTotal(acompra)
     let artQuitar=document.getElementById(`fila${art.id}`);
     artQuitar.remove();
+    let cantCompra=0
+    acompra.forEach((art)=>{
+        cantCompra+=art.cant
+    })
+    actualizaIconoCarro(cantCompra)
 }
 
 
@@ -43,21 +48,25 @@ function cancelarCompra(aCompra){
             cancelarCompra(aCompra)
         }
     }
+    actualizaIconoCarro(0)
 }
 
 function sumarArticulo(oart,acompra){
+    let cantArt=0
     acompra.forEach((art)=>{
         if (art.id==oart.id){
             art.cant+=1
             document.getElementById(`cant${art.id}`).innerHTML=`${art.cant}`
             document.getElementById(`subTot${art.id}`).innerHTML=`$${art.cant*art.precio}`
         }
+        cantArt+=art.cant
     })
-
-    actualizarTotal(acompra)
+    actualizaIconoCarro(cantArt)
+    actualizarTotal(cantArt)
 }
 
 function restarArticulo(oart,acompra){
+    let cantArt=0
     acompra.forEach((art)=>{
         if (art.id==oart.id){
             if (art.cant>1){
@@ -68,10 +77,12 @@ function restarArticulo(oart,acompra){
             else{
                 alert("Presione quitar si no desea comprar el articulo")
             } 
+               
         }
-        actualizarTotal(acompra)
+        cantArt+=art.cant
     })
-
+    actualizaIconoCarro(cantArt)
+    actualizarTotal(acompra)
 }
 
 
@@ -80,17 +91,28 @@ function renderizarArticulos(arrayDeArticulos){
     for(const art of arrayDeArticulos){
         let divcard=document.createElement("div");
         divcard.className="card cardArt m-2";
-        divcard.style="width: 200px; height: 230px;"
+        /*divcard.style="width: 200px; height: 230px;"*/
         divcard.innerHTML=`
             <img src=./img/${art.img} class="card-img-top card-img" alt="...">
-            <div class="card-body  d-flex flex-column justify-content-center align-item-center" style="height:30%>
+            <div class="card-body  d-flex flex-column justify-content-between align-item-center" style="height:30%>
                 <h3 class="card-title">${art.Nombre}</h3>
                 <p class="card-subtitle">Precio: $ ${art.precio}</p>
-                <p class="card-subtitle">Cantidad:1</p>            
-                <button id=btn${art.id} class="btn btn-primary btn-comprar" style="width: 150px";>Comprar</button>
+                <p class="card-subtitle">Cantidad:1</p>         
+                <button id="btn${art.id}" class="btn btn-primary btn-comprar" style="width: 150px";>Comprar</button>
             </div>
         `;
         cards.append(divcard);
+    }
+}
+function actualizaIconoCarro(nCant){
+    let carroCount=document.getElementById("btnCarroCount")
+    if(nCant!=0){
+        carroCount.style.display="block";
+        carroCount.innerHTML=`${nCant}`;
+    }
+    else{
+        carroCount.style.display="none";
+        carroCount.innerHTML=``;    
     }
 }
 
@@ -111,7 +133,11 @@ function renderizarCarroCompras(art,acompra){
             <th><button id=btnquitar${art.id} class="btn btn-secondary  btn-quitar btn-sm">Quitar</button></th>
         </tr>
     `;
-   
+    let cantCompra=0
+    acompra.forEach((art)=>{
+        cantCompra+=art.cant
+    })
+    actualizaIconoCarro(cantCompra)
     configurarButtonQuitar(acompra)
     configButtonMasMenos(acompra)   
 }
@@ -120,6 +146,7 @@ function init(){
     let almacen=new Almacen();   
     renderizarArticulos(almacen.inventario)
     configbuttonscards(almacen)
+    /*configurarBotonCarrito()*/
     configButtonsCompra(almacen.compra)
     disableButtonsCompra(true)
     /*document.getElementById("carroCompra").style.display="none"*/
