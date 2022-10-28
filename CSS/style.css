@@ -43,6 +43,11 @@ h1,h2,h3,h4,h5,th,p,a{
     color:#8442c7;
     background-color:#faee52;
 }
+
+.btn:visited{
+  color:#8442c7;
+}
+
 .btn:disabled{
   color:#8442c7;
   background-color:#faee52;

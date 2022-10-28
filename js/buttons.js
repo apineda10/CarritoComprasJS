@@ -25,7 +25,7 @@ function configbuttonscards(oAlmacen){
     oAlmacen.inventario.forEach((art)=>{
         document.getElementById(`btn${art.id}`).addEventListener("click",function(){
             agregarAlCarro(art,oAlmacen.compra);
-            document.getElementById(`btn${art.id}`).disabled=true;
+            //document.getElementById(`btn${art.id}`).disabled=true;
         })
     })
 }
@@ -55,17 +55,4 @@ function getMensaje(compra){
     })
     mensaje+="__________________________%0D%0ATotal%3A+$"+total
     return mensaje
-}
-
-
-function configurarBotonCarrito(){
-    
-
-    const myModal = document.getElementById('btnCarro')
-    const myInput = document.getElementById('carroCompra')
-
-    myModal.addEventListener('click',function(){
-    myInput.focus()
-})
-
 }

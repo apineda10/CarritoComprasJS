@@ -12,18 +12,24 @@ function quitarDelCarro(art,acompra){
 
 
 function agregarAlCarro(art,acompra){
-    art.cant=1
-    acompra.push(art);
-    renderizarCarroCompras(art,acompra);
-    actualizarTotal(acompra)
-    disableButtonsCompra(false)
+    if (articuloAgregado(art,acompra)){
+        sumarArticulo(art,acompra)    
+    }else{
+        art.cant=1
+        acompra.push(art);
+        renderizarCarroCompras(art,acompra);
+        actualizarTotal(acompra)
+        disableButtonsCompra(false)
+    }
+
+    
 }
 
 function actualizarTotal(acompra){
     let ntotal=0
     if (acompra.length!=0){
         acompra.forEach((art)=>{
-            ntotal+=art.precio * art.cant
+            ntotal+=(art.precio * art.cant)
     })}
     else {
         disableButtonsCompra(true)
@@ -62,7 +68,7 @@ function sumarArticulo(oart,acompra){
         cantArt+=art.cant
     })
     actualizaIconoCarro(cantArt)
-    actualizarTotal(cantArt)
+    actualizarTotal(acompra)
 }
 
 function restarArticulo(oart,acompra){
@@ -116,8 +122,13 @@ function actualizaIconoCarro(nCant){
     }
 }
 
+function articuloAgregado(art,acompra){
+    return acompra.some((a)=>a.id==art.id)
+}
+
 function renderizarCarroCompras(art,acompra){
     let carro=document.getElementById("carrocompra__articulos");
+    
     carro.innerHTML+=`
         <tr id="fila${art.id}">
             <th>${art.Nombre}</th>
