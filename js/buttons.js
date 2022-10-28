@@ -25,7 +25,14 @@ function configbuttonscards(oAlmacen){
     oAlmacen.inventario.forEach((art)=>{
         document.getElementById(`btn${art.id}`).addEventListener("click",function(){
             agregarAlCarro(art,oAlmacen.compra);
-            //document.getElementById(`btn${art.id}`).disabled=true;
+            Toastify({
+                text: "Articulo agregado al carrito",        
+                duration: 1000,
+                position: 'right',
+                style: {
+                    background: 'linear-gradient(to right, #00b09b, #96c92d)'
+                }
+                }).showToast();
         })
     })
 }

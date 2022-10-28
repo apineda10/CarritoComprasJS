@@ -21,7 +21,6 @@ function agregarAlCarro(art,acompra){
         actualizarTotal(acompra)
         disableButtonsCompra(false)
     }
-
     
 }
 
@@ -81,7 +80,14 @@ function restarArticulo(oart,acompra){
                 document.getElementById(`subTot${art.id}`).innerHTML=`$${art.cant*art.precio}`           
             }
             else{
-                alert("Presione quitar si no desea comprar el articulo")
+                Toastify({
+                    text: "Presione quitar si no desea comprar este artículo",        
+                    duration: 2000,
+                    position: 'right',
+                    style: {
+                        background: 'linear-gradient(to right, #ff0000, #fd07bd)'
+                    }
+                    }).showToast();
             } 
                
         }
