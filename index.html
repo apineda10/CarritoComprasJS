@@ -15,7 +15,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- Toastify -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">    
-    
+    <!--ANIMACIONES-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--CSS-->
     <link rel="stylesheet" href="./css/style.css">
     <title>Almacen</title>
@@ -23,8 +24,8 @@
  
 <body>
     <div class="contenedor-navbar m-8">
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8442c7;">
-        <a class="navbar-brand" href="#" style="color: #faee52;">Almacen</a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Bebidas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,10 +33,10 @@
           <div class="container-fluid">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="#" style="color: #faee52;">Categorias</a>
+                <a class="nav-link" href="#">Categorias</a>
               </li>
               <li class="nav-item" style="margin-left:85%">
-                <button id="btnCarro" class="btn bi bi-cart-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position:absolute; z-index: 2;font-size: large; "></button>
+                <button id="btnCarro" class="btn bi-cart-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position:absolute; z-index: 2;font-size: large; "></button>
                 <a id="btnCarroCount" style="display:none; height:14px; width:14px;background-color: red;border-radius:50px;  position:absolute; color:white; z-index: 3; font-size: x-small; text-align: center; margin-left: 25px;margin-top: 10px;">1</a>
               </li>
             </ul>
@@ -48,7 +49,7 @@
         <br>
         <section id="principal" class="row m-2">
 
-            <article id="cartas" class="d-flex flex-wrap justify-content-between align-items-center">
+            <article id="cartas" class="d-flex flex-wrap justify-content-center align-items-center" data-aos="fade-up"> 
                 <!-- aqui cartas -->
             </article>
 
@@ -95,7 +96,11 @@
 
     <!-- Toastify -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="./js/objects.js"></script>
     <script src="./js/buttons.js"></script>
     <script src="./js/codigo.js"></script>

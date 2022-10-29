@@ -3,55 +3,56 @@
   }
 
 body {
-    background-color: #faee52;
+    background-color: #4c64a2;
   }
 
-h1,h2,h3,h4,h5,th,p,a{
-   color:#8442c7; 
+h1,h2,h4,h5{
+  color:white;
+}
+h3{
+  color:white;
+  font-weight: 600;
+}
+
+th{
+  color:black
+
+}
+p,a{
+   color:#4c64a2;
 }
 
 .card-img {
   height: 40%;
-  object-fit:cover
+  object-fit:contain
 }
 
 .cardArt{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding: 2;
-    width: 200px;
-    height:250px;
-    box-shadow: 1px 1px #8442c7;
+    width: 275px;
+    height:300px;
+    box-shadow: 2px 2px rgba(10, 10, 10, 0.507);
 }
 
 .btn {
-    background-color:#8442c7;
-    color:#faee52;
-    border-color: #faee52;
+    background-color:#4c64a2;
+    color:white;
+    border:2px solid rgba(10, 10, 10, 0.507);
+    --bs-btn-font-weight: 600;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-bg:#4c64a2;
+    --bs-btn-hover-border-color:#4c64a2;
 }
+
 .btn:hover{
-    color:#8442c7;
-    background-color:#faee52;
-}
-.btn::backdrop{
-  color:#8442c7;
-  background-color:#faee52;
-}
-.btn:active{
-    color:#8442c7;
-    background-color:#faee52;
+    color:#4c64a2;
+    background-color:white;
 }
 
-.btn:visited{
-  color:#8442c7;
-}
-
-.btn:disabled{
-  color:#8442c7;
-  background-color:#faee52;
-}
 .navbar{
     box-shadow: 4px;
     padding:5px

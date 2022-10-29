@@ -1,32 +1,29 @@
-class Articulo {
-    constructor(nid, cNombre,nPrecio,cDescripcion,img,cant) {
-      this.id = nid;
-      this.Nombre = cNombre;
-      this.precio=nPrecio
-      this.Descripcion=cDescripcion
-      this.img=img
-      this.cant=cant
-    }
-  }
+const articulos=[
+  {id:1,Nombre:"JOHNNIE WALKER BLACK LABEL",precio:6245,Descripcion:"JOHNNIE WALKER BLACK LABEL",img:"Johnnie.jpg",cant:0},
+  {id:2,Nombre:"JOHNNIE WALKER DOUBLE BLACK LABEL",precio:9285,Descripcion:"JOHNNIE WALKER DOUBLE BLACK LABEL",img:"Johnniedouble.jpg",cant:0},
+  {id:4,Nombre:"JOHNNIE WALKER GOLD LABEL RESERVE",precio:15392,Descripcion:"JOHNNIE WALKER GOLD LABEL RESERVE",img:"JOHNNIEgold.jpg",cant:0},
+  {id:5,Nombre:"JOHNNIE WALKER RED LABEL",precio:4826,Descripcion:"JOHNNIE WALKER RED LABEL",img:"Johnniered.jpg",cant:0},
+  {id:6,Nombre:"THE SINGLETON 18YO DUFFTOWN",precio:24855,Descripcion:"THE SINGLETON 18YO DUFFTOWN",img:"singleton.jpg",cant:0},
+  {id:7,Nombre:"JOHNNIE WALKER SWING",precio:16040,Descripcion:"JOHNNIE WALKER SWING",img:"JOHNNIESWING.jpg",cant:0},
+  {id:8,Nombre:"JOHNNIE WALKER BLUE LABEL",precio:61505,Descripcion:"JOHNNIE WALKER BLUE LABEL",img:"JOHNNIEBLUE.jpg",cant:0},
+  {id:9,Nombre:"TALISKER 10YO",precio:18972,Descripcion:"TALISKER 10YO",img:"TALISKER.jpg",cant:0},
+  {id:10,Nombre:"SHERIDAN'S",precio:5772,Descripcion:"SHERIDAN'S",img:"sheridans.jpg",cant:0},
+  {id:11,Nombre:"BAILEYS ORIGINAL",precio:4275,Descripcion:"BAILEYS ORIGINAL",img:"BAILEYS.jpg",cant:0},
+  {id:12,Nombre:"NAVARRO CORREAS",precio:898,Descripcion:"NAVARRO CORREAS",img:"NAVARROCORREAS.jpg",cant:0},
+  {id:13,Nombre:"MASCOTA VINEYARDS",precio:2600,Descripcion:"MASCOTA VINEYARDS",img:"MASCOTAVINEYARDS.jpg",cant:0},
+  {id:14,Nombre:"EL ESTECO",precio:3818,Descripcion:"EL ESTECO",img:"ELESTECO.jpg",cant:0},
+  {id:15,Nombre:"TRAPICHE GRAN MEDALLA",precio:5700,Descripcion:"Crema descremada de 500cc",img:"trapiche.jpg",cant:0},
 
+]
+
+sessionStorage.setItem("listaDeArticulos",JSON.stringify(articulos))
 
 class Almacen{
     constructor(){
         this.totalDeCompra=0;
         this.compra=[];
         this.totalItem=0
-        this.inventario=[
-            new Articulo(1,"Crema",100,"Crema descremada de 500cc","crema.png",0),
-            new Articulo(2,"Leche Descremada",222,"Leche descremada de 1lt","leche.png",0),
-            new Articulo(3,"Queso Cremoso",900,"Queso Cremoso por kilo","pan.png",0),
-            new Articulo(4,"Manteca",300,"Manteca entera de 250gr","manteca.png",0),
-            new Articulo(5,"Yogurt",100,"Yogurt descremado de 250cc","yogurt.png",0),
-            new Articulo(6,"Ricota",150,"Ricota de 500gr","ricota.png"),
-            new Articulo(7,"Queso Reggianito",500,"Queso Cremoso por kilo","quesoregia.png",0),
-            new Articulo(8,"Pan",300,"Pan por kilo","pan.png",0),
-            new Articulo(9,"Mermelada",250,"Mermelada de durazno","mermelada.png",0),
-            new Articulo(10,"CocaCola",300,"Coca-cola de 2.5lt","coca.png",0),
-        ];
+        this.inventario=JSON.parse(sessionStorage.getItem("listaDeArticulos"))
     }
 
 } 

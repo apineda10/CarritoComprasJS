@@ -1,8 +1,10 @@
+//deshabilita los botones del carrito 
 function disableButtonsCompra(bvalor){
     document.getElementById("btnfin").disabled=bvalor;
     document.getElementById("btncancel").disabled=bvalor;
 }
 
+//listener de quitar boton de articulo
 function configurarButtonQuitar(aCompra){
     aCompra.forEach((art)=>{
         document.getElementById(`btnquitar${art.id}`).addEventListener("click",function(){
@@ -11,6 +13,8 @@ function configurarButtonQuitar(aCompra){
         })
     }) 
 }
+
+//listener mas/menos de articulo en carrito 
 function configButtonMasMenos(aCompra){  
     aCompra.forEach((art)=>{  
         document.getElementById(`btnmas${art.id}`).addEventListener("click",function(){
@@ -21,6 +25,8 @@ function configButtonMasMenos(aCompra){
         })
     })
 }
+
+//listener boton comprar de card
 function configbuttonscards(oAlmacen){
     oAlmacen.inventario.forEach((art)=>{
         document.getElementById(`btn${art.id}`).addEventListener("click",function(){
@@ -37,6 +43,7 @@ function configbuttonscards(oAlmacen){
     })
 }
 
+//listener botones de compra en carrito 
 function configButtonsCompra(aCompra){  
     document.getElementById("btnfin").addEventListener("click",function(){
         mandarWhatsapp(getMensaje(aCompra))
@@ -46,6 +53,9 @@ function configButtonsCompra(aCompra){
         cancelarCompra(aCompra)
     })
 }
+
+
+//funciones auxiliar de finalizar compra 
 
 function mandarWhatsapp(url){
     var win = window.open(url, '_blank');

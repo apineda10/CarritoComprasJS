@@ -1,3 +1,4 @@
+//elimina un articuo del array de articulo y actualiza icono 
 function quitarDelCarro(art,acompra){
     acompra.splice(acompra.findIndex((artcomprado)=>artcomprado.id==art.id),1)
     actualizarTotal(acompra)
@@ -10,7 +11,7 @@ function quitarDelCarro(art,acompra){
     actualizaIconoCarro(cantCompra)
 }
 
-
+//agrega funcion de listener comprar de card 
 function agregarAlCarro(art,acompra){
     if (articuloAgregado(art,acompra)){
         sumarArticulo(art,acompra)    
@@ -24,6 +25,7 @@ function agregarAlCarro(art,acompra){
     
 }
 
+//actualiza el total en carrito 
 function actualizarTotal(acompra){
     let ntotal=0
     if (acompra.length!=0){
@@ -43,6 +45,7 @@ function actualizarTotal(acompra){
     
 }
 
+//vacia el array de compra y los elimina de carrito 
 function cancelarCompra(aCompra){
     let lacompra=aCompra
     if (aCompra.length!=0){
@@ -56,6 +59,7 @@ function cancelarCompra(aCompra){
     actualizaIconoCarro(0)
 }
 
+//suma un articulo al array de compra y al carrito 
 function sumarArticulo(oart,acompra){
     let cantArt=0
     acompra.forEach((art)=>{
@@ -70,6 +74,7 @@ function sumarArticulo(oart,acompra){
     actualizarTotal(acompra)
 }
 
+//resta un articulo al array de compra y al carrito
 function restarArticulo(oart,acompra){
     let cantArt=0
     acompra.forEach((art)=>{
@@ -96,26 +101,29 @@ function restarArticulo(oart,acompra){
     actualizaIconoCarro(cantArt)
     actualizarTotal(acompra)
 }
-
-
+//renderiza articulo
 function renderizarArticulos(arrayDeArticulos){
     let cards=document.getElementById("cartas");
     for(const art of arrayDeArticulos){
         let divcard=document.createElement("div");
+
         divcard.className="card cardArt m-2";
+        divcard.setAttribute("data-aos", "fade-up");
         /*divcard.style="width: 200px; height: 230px;"*/
         divcard.innerHTML=`
             <img src=./img/${art.img} class="card-img-top card-img" alt="...">
-            <div class="card-body  d-flex flex-column justify-content-between align-item-center" style="height:30%>
-                <h3 class="card-title">${art.Nombre}</h3>
+            <div class="card-body  d-flex flex-column justify-content-center align-item-center text-center" style="height:20%>
+                <h3 class="card-title" style="font-weight: 600;">${art.Nombre}</h3>
                 <p class="card-subtitle">Precio: $ ${art.precio}</p>
                 <p class="card-subtitle">Cantidad:1</p>         
-                <button id="btn${art.id}" class="btn btn-primary btn-comprar" style="width: 150px";>Comprar</button>
             </div>
+            <button id="btn${art.id}" class="btn btn-primary btn-comprar " style="width: 150px ;margin-bottom:20px";>Comprar</button>
         `;
         cards.append(divcard);
     }
 }
+
+//actualiza el numero de articulos en carro en el icono 
 function actualizaIconoCarro(nCant){
     let carroCount=document.getElementById("btnCarroCount")
     if(nCant!=0){
@@ -128,10 +136,12 @@ function actualizaIconoCarro(nCant){
     }
 }
 
+//valida si el articulo fue previamente agregado al carro 
 function articuloAgregado(art,acompra){
     return acompra.some((a)=>a.id==art.id)
 }
 
+//renderiza el carro de compra y setea botones
 function renderizarCarroCompras(art,acompra){
     let carro=document.getElementById("carrocompra__articulos");
     
@@ -163,10 +173,9 @@ function init(){
     let almacen=new Almacen();   
     renderizarArticulos(almacen.inventario)
     configbuttonscards(almacen)
-    /*configurarBotonCarrito()*/
     configButtonsCompra(almacen.compra)
     disableButtonsCompra(true)
-    /*document.getElementById("carroCompra").style.display="none"*/
+
 }
 
 
