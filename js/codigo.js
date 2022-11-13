@@ -33,6 +33,7 @@ if (listaCompra.length != 0) {
         }
     })
 }
+
 configButtonsCompra(listaCompra)
 getArticulos()
 
@@ -41,7 +42,6 @@ getArticulos()
 //elimina un articuo del array de articulo y actualiza icono 
 function quitarDelCarro(art, acompra) {
     acompra.splice(acompra.findIndex((artcomprado) => artcomprado.id == art.id), 1)
-
     let artQuitar = document.getElementById(`fila${art.id}`);
     artQuitar.remove();
     let cantCompra = 0

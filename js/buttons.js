@@ -55,6 +55,14 @@ function configbuttonscards(aInventario, aCompra){
 //listener botones de compra en carrito 
 function configButtonsCompra(aCompra){  
     document.getElementById("btnfin").addEventListener("click",function(){
+
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Gracias por tu compra!',
+            showConfirmButton: false,
+          })
+
         mandarWhatsapp(getMensaje(aCompra))
         cancelarCompra(aCompra)
     })
@@ -77,8 +85,9 @@ function getMensaje(compra){
     for(const art of compra){
         let subtot=art.cant*art.precio
         total+=subtot
-        mensaje+=art.cant+"%20"+art.Nombre+"%20+$"+subtot+"%0D%0A"
+        mensaje+=art.cant+"%20"+art.nombre+"%20+$"+subtot+"%0D%0A"
     }
     mensaje+="__________________________%0D%0ATotal%3A+$"+total
     return mensaje
 }
+
